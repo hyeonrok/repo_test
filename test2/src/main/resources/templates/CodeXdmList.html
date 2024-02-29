@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>codeGroupXdmList</title>
+</head>
+<body>
+    <table>
+    	<tr>
+    		<td>체크박스</td>
+    		<td>#</td>
+    		<td>그룹코드 seq</td>
+    		<td>그룹코드 이름</td>
+    		<td>코드 삭제 여부</td>
+    		<td>코드 seq</td>
+    		<td>코드 이름</td>
+    		<td>코드 수정일</td>
+    	</tr>
+    	<tr th:if="${#lists.isEmpty(list)}">
+    	    <td colspan="8">N/A</td>
+    	</tr>
+    	<tr th:if="${!#lists.isEmpty(list)}" th:each="list:${list}">
+    	    <td></td>
+    		<td></td>
+    		<td th:text="${list.codegroupseq}"></td>
+    		<td th:text="${list.codegroupname}"></td>
+    		
+    		<td th:if="${list.delNy eq 0}">N</td>
+    		<td th:unless="${list.delNy eq 0}">Y</td>
+    		
+    		<td th:text="${list.seq}"></td>
+    		<td th:text="${list.name}"></td>
+    		<td th:text="${#dates.format(list.modDatetime, 'yyyy-MM-dd HH:mm:ss')}"></td>
+    	</tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.infra.code.CodeDao">
+
+	<resultMap id="resultMapObj" type="com.example.demo.infra.code.CodeDto"></resultMap>
+
+	<select id="selectList" resultMap="resultMapObj"> <!-- 애매 -->
+
+		select
+			b.seq as codegroupseq
+			,b.name	as codegroupseq
+			,a.delNy
+			,a.seq 
+			,a.name
+			,a.modDatetime
+			from 
+			code a
+			right join codeGroup b
+			on b.seq = a.codegroup_seq
+			
+			
+	</select>
+	  
+</mapper>
