@@ -28,6 +28,8 @@
     		<td th:text="${list.seq}"></td>
        		<td th:text="${list.name}"></td>
        		<td th:text="${list.xseqCount}"></td>
+       		<td><a th:href="@{/codeGroupView(seq=${list.seq},name=${list.name})}" th:text="${list.name}"></a></td>
+       		
      		<td th:text="${#dates.format(list.modDatetime, 'yyyy-MM-dd HH:mm:ss')}"></td>
     	</tr>
     </table>
