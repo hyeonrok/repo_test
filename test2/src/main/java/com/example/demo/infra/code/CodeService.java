@@ -15,4 +15,23 @@ public class CodeService {
 		return dao.selectList();
 		}
 	
+	public CodeDto selectOne(CodeDto dto) {
+		return dao.selectOne(dto);
+	}
+	
+	public int insert(CodeDto dto) {
+		return dao.insert(dto);
+	}
+	
+	public int update(CodeDto dto) {
+		return dao.update(dto);
+	}
+	
+	public int uelete(CodeDto dto) {
+		return dao.uelete(dto);
+	}
+	
+	public int delete(CodeDto dto) {
+		return dao.delete(dto);
+	}
 }

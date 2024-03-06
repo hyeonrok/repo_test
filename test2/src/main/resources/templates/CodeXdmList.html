@@ -6,6 +6,7 @@
     <title>codeGroupXdmList</title>
 </head>
 <body>
+	<a th:href="@{/CodeReg}" th:text="등록"></a>
     <table>
     	<tr>
     		<td>체크박스</td>
@@ -15,15 +16,16 @@
     		<td>코드 삭제 여부</td>
     		<td>코드 seq</td>
     		<td>코드 이름</td>
+    		<td>코드 링크</td>
     		<td>코드 수정일</td>
     	</tr>
     	<tr th:if="${#lists.isEmpty(list)}">
-    	    <td colspan="8">N/A</td>
+    	    <td colspan="9">N/A</td>
     	</tr>
     	<tr th:if="${!#lists.isEmpty(list)}" th:each="list:${list}">
     	    <td></td>
     		<td></td>
-    		<td th:text="${list.codegroupseq}"></td>
+    		<td th:text="${list.codegroup_seq}"></td>
     		<td th:text="${list.codegroupname}"></td>
     		
     		<td th:if="${list.delNy eq 0}">N</td>
@@ -31,6 +33,8 @@
     		
     		<td th:text="${list.seq}"></td>
     		<td th:text="${list.name}"></td>
+    		<td><a th:href="@{/CodeView(seq=${list.seq}, name=${list.name}, delNy=${list.delNy})}" th:text="${list.name}"></a></td>
+    		
     		<td th:text="${#dates.format(list.modDatetime, 'yyyy-MM-dd HH:mm:ss')}"></td>
     	</tr>
     </table>

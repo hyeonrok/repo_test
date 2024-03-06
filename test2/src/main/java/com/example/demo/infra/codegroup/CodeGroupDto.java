@@ -53,6 +53,13 @@ public class CodeGroupDto {
 	public void setXseqCount(Integer xseqCount) {
 		this.xseqCount = xseqCount;
 	}
+	@Override
+	public String toString() {
+		return "CodeGroupDto [seq=" + seq + ", name=" + name + ", memo=" + memo + ", delNy=" + delNy + ", regDatetime="
+				+ regDatetime + ", modDatetime=" + modDatetime + ", xseqCount=" + xseqCount + "]";
+	}
+	
+	
 	
 	
 }
