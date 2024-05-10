@@ -16,8 +16,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 
 @Configuration
-//@MapperScan(basePackages={"com.example.demo.*","com.opengroupfw.fapp.*"}		//#-->	*dao 찾는 영역
-@MapperScan(basePackages="com.example.demo.*"									//#-->	*dao 찾는 영역 (한개일때)
+//@MapperScan(basePackages={"com.jlook.*","com.opengroupfw.fapp.*"}		//#-->	*dao 찾는 영역
+@MapperScan(basePackages="com.jlook.infra.*"									//#-->	*dao 찾는 영역 (한개일때)
         ,sqlSessionFactoryRef="sqlSessionFactoryMysqlMain")             		//#-->
 @EnableTransactionManagement
 public class DbConfigMysqlMain {                                        //#-->
@@ -41,7 +41,7 @@ public class DbConfigMysqlMain {                                        //#-->
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(datasource);
         sqlSessionFactoryBean.setMapperLocations(
-                applicationContext.getResources("classpath:/mybatis/mapper/mysql/main/**/*.xml"));	//#--> *mapper.xml 위치
+                applicationContext.getResources("classpath:/mybatis/mapper/mysql/main/**/**.xml"));	//#--> *mapper.xml 위치
         return sqlSessionFactoryBean.getObject();
     }
 
